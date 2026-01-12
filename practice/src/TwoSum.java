@@ -5,7 +5,7 @@ import java.util.Map;
 /**
  *
  */
-public class Main {
+public class TwoSum {
     public static void main(String[] args) {
 
         int[] nums = {1, 3, 5, 7};
