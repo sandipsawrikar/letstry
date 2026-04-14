@@ -21,11 +21,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import  com.sandip.jasperreport.Subject;
@@ -44,7 +40,7 @@ public class StudentController {
 
         List<Subject> subjects = Arrays.asList(subject1, subject2, subject3, subject4, subject5);
 
-        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(subjects);
+        JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(new ArrayList<>());
         JRBeanCollectionDataSource chartDataSource = new JRBeanCollectionDataSource(subjects);
 
         String path = ResourceUtils.getFile("classpath:Student.jrxml").getAbsolutePath();
