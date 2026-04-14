@@ -14,11 +14,7 @@ import net.sf.jasperreports.export.SimpleExporterInput;
 import net.sf.jasperreports.export.SimpleOutputStreamExporterOutput;
 
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
@@ -35,7 +31,7 @@ public class TotalMarksObtainedDemo {
         List<Subject> subjects = Arrays.asList(subject1, subject2, subject3, subject4, subject5);
 
         JRBeanCollectionDataSource dataSource = new JRBeanCollectionDataSource(subjects);
-        JRBeanCollectionDataSource chartDataSource = new JRBeanCollectionDataSource(subjects);
+        JRBeanCollectionDataSource chartDataSource = new JRBeanCollectionDataSource(new ArrayList<>());
 
         Map<String, Object> parameters = new HashMap<String, Object>();
         parameters.put("studentName", "John");
@@ -46,7 +42,7 @@ public class TotalMarksObtainedDemo {
 
         InputStream resourceAsStream = TotalMarksObtainedDemo.class.getClassLoader().getResourceAsStream("student.jrxml");
         JasperReport jasperReport = JasperCompileManager.compileReport(resourceAsStream);
-        JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, chartDataSource);
+        JasperPrint print = JasperFillManager.fillReport(jasperReport, parameters, dataSource);
 
         JasperExportManager.exportReportToPdfFile(print, "Student.pdf");
         JasperExportManager.exportReportToHtmlFile(print, "student.html");
