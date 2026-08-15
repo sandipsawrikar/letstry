@@ -12,7 +12,7 @@ public class Highest2Salarys {
                 new Employee("ROHIT",7000,"HR"),
                 new Employee("Kishan",4500,"Finance") ));
 
-        List<Employee> list = employees.stream().sorted(Comparator.comparingInt(emp -> -1 * emp.getSalary())).limit(2).
+        List<Employee> list = employees.stream().sorted(Comparator.comparingInt(emp -> 1 * emp.getSalary())).limit(2).
                 collect(Collectors.toList());
         System.out.println(list);
     }

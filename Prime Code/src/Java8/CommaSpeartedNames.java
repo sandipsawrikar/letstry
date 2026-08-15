@@ -15,6 +15,7 @@ public class CommaSpeartedNames {
                 new Employee("Sachin1",3000,"Finance") ));
 
         String collect = employees.stream().map(Employee::getName).collect(Collectors.joining(","));
+        System.out.println(employees.stream().map(Employee::getName).collect(Collectors.joining("_")));
         System.out.println(collect);
     }
 }
