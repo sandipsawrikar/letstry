@@ -19,7 +19,7 @@ class Task extends Thread {
 public class MulitiThreadedExecuterServiceRunner {
     public static void main(String[] args)  {
         ExecutorService executorService= Executors.newFixedThreadPool(10);
-        executorService.execute(new Task(1));
+        executorService.execute(new Thread());
         executorService.execute(new Task(2));
         executorService.execute(new Task(3));
         executorService.execute(new Task(4));
