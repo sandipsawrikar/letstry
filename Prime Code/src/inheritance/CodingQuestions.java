@@ -12,6 +12,8 @@ public class CodingQuestions {
 
         reverseStringOldWay();
         reverseStringJava8();
+        reverseStringOptimized();
+
         firstNonRepeatedCharacter();
         checkPalindrome();
         findDuplicateElements();
@@ -52,7 +54,8 @@ public class CodingQuestions {
         return true;
     }
 
-    private static void fibonacci() {
+    private static void
+    fibonacci() {
         int n = 10;
         int a = 0;
         int b = 1;
@@ -133,22 +136,29 @@ public class CodingQuestions {
         String str = "amadama";
         int left = 0;
         int right = str.length() - 1;
+        boolean isPalindrome = true; // Assume it is a palindrome initially
+
         while (left < right) {
             if (str.charAt(left) != str.charAt(right)) {
-                System.out.println("not palimdrome");
+                isPalindrome = false; // Found a mismatch
                 break;
             }
             left++;
             right--;
         }
-        if (right == (str.length() - 1) / 2) {
-            System.out.println("palimdrome");
+
+        if (isPalindrome) {
+            System.out.println("palindrome");
+        } else {
+            System.out.println("not palindrome");
         }
     }
 
     private static void firstNonRepeatedCharacter() {
         String str = "swisssWWWw";
         Map<Character, Integer> characterIntegerMap = new LinkedHashMap();
+
+
 
         for (int i = 0; i <= str.length() - 1; i++) {
             if (characterIntegerMap.containsKey(str.charAt(i))) {
@@ -189,5 +199,25 @@ public class CodingQuestions {
             right--;
         }
         System.out.println(charArr);
+    }
+    private static String reverseStringOptimized() {
+        String str = "Java1";
+
+        if (str == null || str.length() <= 1) {
+            return str;
+        }
+        StringBuilder sb = new StringBuilder(str);
+        int left = 0;
+        int right = sb.length() - 1;
+
+        while (left < right) {
+            char temp = sb.charAt(right);
+            sb.setCharAt(right, sb.charAt(left));
+            sb.setCharAt(left, temp);
+            left++;
+            right--;
+        }
+
+        return sb.toString();
     }
 }

@@ -1,9 +1,8 @@
 package Java8;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public class CommaSpeartedNames {
     public static void main(String[] args) {
@@ -17,5 +16,9 @@ public class CommaSpeartedNames {
         String collect = employees.stream().map(Employee::getName).collect(Collectors.joining(","));
         System.out.println(employees.stream().map(Employee::getName).collect(Collectors.joining("_")));
         System.out.println(collect);
+
+     Integer secondHighest = employees.stream().map(emp -> emp.getSalary()).distinct().sorted(Comparator.reverseOrder()).skip(1).limit(1).findFirst().orElse(null);
+        System.out.println(secondHighest);
+
     }
 }

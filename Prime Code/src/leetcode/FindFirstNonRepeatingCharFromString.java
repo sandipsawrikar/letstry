@@ -7,11 +7,16 @@ import java.util.stream.Collectors;
 public class FindFirstNonRepeatingCharFromString {
     public static void main(String[] args) {
         String str = "testetttsssxy";
-
+        int count =0;
         for(char c: str.toCharArray()){
             if(str.indexOf(c)==str.lastIndexOf(c)) {
-                System.out.println(c);
-               break;
+                System.out.println(count);
+                ++count;
+                System.out.println(count);
+               if(count==2) {
+                   System.out.println(c);
+                   break;
+               }
             }
         }
 

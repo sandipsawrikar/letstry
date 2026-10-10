@@ -1,11 +1,16 @@
 package leetcode;
 
 import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 
 public class MaxProfit {
     public static void main(String[] args) {
        int [] result = maxProfit(new int[]{1,6,3,13,10,13});
        System.out.println(result[0]+"- "+result[1]);
+
+        Set<Integer> s= new HashSet<>();
+        //s.o
 
     }
 

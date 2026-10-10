@@ -8,7 +8,7 @@ public class RotateString {
 
         int n = str.length();
         d = d % n; // Handle rotation counts larger than string length
-return str.substring(2)+str.substring(0,d);
+        return str.substring(2)+str.substring(0,d);
 
     }
 
